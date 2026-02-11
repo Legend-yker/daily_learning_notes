@@ -1,51 +1,56 @@
-📓 daily_learning_notes 极简使用手册（main单线版）
-一句话核心：在任何新设备上，永远先 pull 再写，写完 commit 后 push 前再 pull 一次，然后 push。
+# 📓 daily_learning_notes 极简使用手册（main单线版）
+##### 一句话核心：在任何新设备上，永远先 pull 再写，写完 commit 后 push 前再 pull 一次，然后 push。
 
-🚀 新设备首次使用（完整流程）
-1️⃣ 克隆仓库到本地
-bash
+## 🚀 新设备首次使用（完整流程）
+### 1️⃣ 克隆仓库到本地
+```bash
     git clone git@github.com:Legend-yker/daily_learning_notes.git
     cd daily_learning_notes
-2️⃣ 设置你的身份（只需一次）
-bash
+```
+## 2️⃣ 设置你的身份（只需一次）
+```bash
     git config --global user.name "你的名字"           
     git config --global user.email "你的邮箱"         
+```
 ✅ 如果之前设置过，可以跳过。验证：git config --global --list
 
-3️⃣ 确保拿到最新笔记
-bash
+## 3️⃣ 确保拿到最新笔记
+```bash
     git pull --rebase origin main
+```
 ⚠️ 这是最重要的一步！ 防止用旧版本覆盖别人（或另一台设备）的新内容。
 
-📝 日常写笔记流程（每次必做）
-1️⃣ 写笔记前：先拉取最新内容
-bash
+## 📝 日常写笔记流程（每次必做）
+### 1️⃣ 写笔记前：先拉取最新内容
+```bash
     git pull --rebase origin main
+```
+## 2️⃣ 添加/修改文件
+### 用 VS Code / Typora / 记事本 编辑 .md 文件 或者新建文件：touch 新笔记.md
 
-2️⃣ 添加/修改文件
-用 VS Code / Typora / 记事本 编辑 .md 文件
-或者新建文件：touch 新笔记.md
-
-3️⃣ 提交到本地仓库
-bash
+## 3️⃣ 提交到本地仓库
+```bash
     git add .                       # 添加所有改动
     git commit -m "2026-02-12 笔记"  # 写清楚日期/内容
-
-4️⃣ 推送前：再拉取一次（保险）
-bash
+```
+## 4️⃣ 推送前：再拉取一次（保险）
+```bash
     git pull --rebase origin main
-💡 如果上一步做完立刻推送，中间没人动过远程，这一步会提示“Already up to date”。
+```
+### 如果上一步做完立刻推送，中间没人动过远程，这一步会提示“Already up to date”。
 
-5️⃣ 推送到 GitHub
-bash
+## 5️⃣ 推送到 GitHub
+```bash
     git push origin main
-🧯 万一遇到冲突怎么办？（极少发生）
+```
+### 🧯 万一遇到冲突怎么办？（极少发生）
 如果 git pull --rebase 提示冲突，说明你和远程修改了同一文件的同一行。
     解决步骤：
     打开冲突文件，搜索 <<<<<<<
     保留需要的内容，删除 ======= 和 >>>>>>>
 保存文件，然后：
-bash
+```bash
     git add 冲突文件.md
     git rebase --continue
     git push origin main
+```
